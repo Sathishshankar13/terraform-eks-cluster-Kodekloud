@@ -80,7 +80,9 @@ resource "aws_subnet" "eks-private" {
 }
 
 resource "aws_eip" "nat" {
-  vpc      = true
+  tags = {
+    Name = "nat-eip"
+  }
 }
 
 resource "aws_nat_gateway" "nat_gw" {
